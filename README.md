@@ -11,16 +11,9 @@
 
 1. 克隆存儲庫：
 ```bash
-git clone https://github.com/fainstar/fit_static_0727.git
-cd fit_static_0727
-```
+git clone https://github.com/fainstar/FiT_Static_0730.git```
 
-2. 拉取模型文件：
-```bash
-git lfs pull
-```
-
-3. 開啟靜態網站：
+2. 開啟靜態網站：
 ```bash
 python3 -m http.server 8000
 ```
