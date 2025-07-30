@@ -1,0 +1,576 @@
+:root {
+    --bg-color: #f5f5f7;
+    --text-color: #1d1d1f;
+    --primary-color: #007aff;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --container-bg: rgba(255, 255, 255, 0.8);
+    --shadow-color: rgba(0, 0, 0, 0.05);
+    --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1d1d1f;
+    --text-color: #f5f5f7;
+    --primary-color: #0a84ff;
+    --border-color: rgba(255, 255, 255, 0.15);
+    --container-bg: rgba(44, 44, 46, 0.8);
+    --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+/* --- Slider Styles --- */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: var(--border-color);
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.3s;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid var(--bg-color);
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    transition: background 0.3s;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid var(--bg-color);
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    transition: background 0.3s;
+}
+
+#iou-value {
+    font-weight: 500;
+    margin-left: 1rem;
+    min-width: 3em; /* Ensure consistent width */
+    text-align: left;
+}
+
+.example-gallery {
+    background-color: var(--container-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.example-gallery h2 {
+    margin-top: 0;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.image-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.image-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px var(--shadow-color);
+}
+
+h1, .example-gallery h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.intro-card {
+    background-color: var(--container-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    margin-bottom: 2rem;
+}
+
+.intro-card h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.intro-card p {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.settings-card {
+    background-color: var(--container-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.settings-card .control-group {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 250px; /* Prevent groups from becoming too narrow */
+}
+
+.settings-card .control-group label {
+    white-space: nowrap;
+}
+
+/* Target the slider within the settings card to make it flexible */
+.settings-card .control-group input[type="range"] {
+    width: auto;
+    flex-grow: 1;
+}
+
+.current-model-display {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+#current-model-name {
+    font-weight: normal;
+    color: var(--primary-color);
+}
+
+.intro-card .controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.toolbar {
+    display: flex;
+    gap: 1rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.controls {
+    background-color: var(--container-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    padding-bottom: 1.5rem; /* Add padding to the bottom */
+}
+
+.controls p {
+    width: 100%; /* Make the paragraph take the full width */
+    text-align: center; /* Center the text */
+    margin-bottom: 1.5rem; /* Add space below the paragraph */
+}
+
+.control-group {
+    position: relative; /* For icon positioning */
+    flex: 1 1 auto; /* Allow items to grow and shrink based on content */
+    display: flex;
+    flex-direction: column;
+}
+
+.toolbar .control-group {
+    flex-grow: 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+}
+
+.upload-btn .icon {
+}
+
+select, button, .upload-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem; /* Add space between icon and text */
+    width: auto; /* Auto width based on content */
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+.control-group > .icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Make icon non-interactive */
+    color: var(--text-color);
+}
+
+.control-group select {
+    padding-left: 36px; /* Make space for the icon */
+}
+
+select {
+    background-color: var(--container-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+button:hover, .upload-btn:hover {
+    filter: brightness(1.1);
+}
+
+#theme-toggle {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#theme-toggle .icon,
+.lang-switcher .icon {
+    stroke: var(--text-color);
+}
+
+#theme-toggle .moon {
+    display: none; /* Hide moon in light mode */
+}
+
+[data-theme="dark"] #theme-toggle .sun {
+    display: none; /* Hide sun in dark mode */
+}
+
+[data-theme="dark"] #theme-toggle .moon {
+    display: block; /* Show moon in dark mode */
+}
+
+.lang-switcher {
+    position: relative;
+}
+
+.lang-switcher select {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.5rem;
+    z-index: 10;
+}
+
+.lang-switcher {
+    position: relative;
+}
+
+.lang-switcher button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.lang-switcher select {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: none;
+    margin-top: 0.5rem;
+    z-index: 10;
+}
+
+.lang-switcher:hover select {
+    display: block;
+}
+
+#image-upload {
+    display: none;
+}
+
+.upload-btn {
+    display: inline-flex; /* Use flexbox for centering */
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem; /* Adjust padding for a square look */
+    width: auto;
+}
+
+.stats-container {
+    display: flex;
+    padding: 1.5rem;
+    background-color: var(--container-bg);
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    margin: 0 auto 2rem auto;
+    width: fit-content;
+}
+
+.stats-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.stats-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.stats-table tr:last-child td {
+    border-bottom: none;
+}
+
+.stats-table td:first-child {
+    font-weight: 500;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.stats-table td:last-child {
+    text-align: right;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-family: 'SF Mono', 'Menlo', 'Monaco', monospace;
+}
+
+.canvas-container {
+    position: relative;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--container-bg);
+    overflow: hidden;
+}
+
+#image-canvas {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+#progress-bar-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+#progress-bar {
+    width: 0%;
+    height: 10px;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    transition: width 0.4s ease;
+}
+
+/* Loader */
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    z-index: 4; /* Ensure it's on top */
+}
+
+@keyframes load {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+.loader div {
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    animation: load 1.3s infinite ease-in-out;
+}
+
+.loader div:nth-child(7) { animation-delay: 0s; }
+.loader div:nth-child(4) { animation-delay: 0.15s; }
+.loader div:nth-child(1) { animation-delay: 0.3s; }
+.loader div:nth-child(8) { animation-delay: 0.45s; }
+.loader div:nth-child(5) { animation-delay: 0.6s; }
+.loader div:nth-child(2) { animation-delay: 0.75s; }
+.loader div:nth-child(9) { animation-delay: 0.9s; }
+.loader div:nth-child(6) { animation-delay: 1.05s; }
+.loader div:nth-child(3) { animation-delay: 1.2s; }
+
+/* Blur overlay */
+.blur-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: none; /* Hidden by default */
+    z-index: 2;
+}
+
+.blur-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    z-index: 3;
+}
+
+.blur-grid .grid-cell {
+    background-color: rgba(255, 255, 255, 0.5);
+    animation: reveal 1.5s infinite ease-in-out;
+}
+
+@keyframes reveal {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .controls {
+        flex-direction: column;
+    }
+
+    .control-group {
+        width: 100%;
+    }
+
+    .canvas-container {
+        width: 100%;
+        height: auto;
+    }
+
+    #image-canvas {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .image-grid img {
+        height: auto; /* Fix for mobile aspect ratio */
+    }
+}
