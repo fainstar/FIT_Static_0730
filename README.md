@@ -11,7 +11,7 @@
 
 1. 克隆存儲庫：
 ```bash
-git clone https://github.com/fainstar/FiT_Static_0730.git```
+git clone https://github.com/fainstar/FiT_Static_0730.git
 ```
 2. 開啟
 ```bash
