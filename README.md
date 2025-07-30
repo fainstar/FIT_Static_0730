@@ -20,6 +20,5 @@ python3 -m http.server 8000
 
 ## 目前部署
 
-[部署網址](https://fainstar.github.io/FiT_Static_0730/)
-
+https://fainstar.github.io/FiT_Static_0730/
 
