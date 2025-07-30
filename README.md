@@ -11,7 +11,7 @@
 
 1. 克隆存儲庫：
 ```bash
-git clone https://github.com/fainstar/FiT_Static_0730.git
+git clone https://github.com/fainstar/FIT_Static_0730.git
 ```
 2. 開啟
 ```bash
@@ -21,5 +21,5 @@ python3 -m http.server 8000
 
 ## 目前部署
 
-https://fainstar.github.io/FiT_Static_0730/
+https://fainstar.github.io/FIT_Static_0730/
 
