@@ -19,7 +19,7 @@ python3 -m http.server 8000
 ```
 瀏覽器開啟 http://localhost:8000 即可使用
 
-或使用任意HTTP伺服器
+或使用任意HTTP Server
 
 ## 目前以部署
 https://fainstar.github.io/FIT_Static_0730/
