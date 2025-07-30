@@ -74,7 +74,6 @@ function updateStats(boxes, inferenceTime) {
     // The inference device is set when the model is loaded
 
     statsContainer.style.display = 'flex';
-    statsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 async function detectObjects(img, scale) {
