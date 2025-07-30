@@ -13,8 +13,13 @@
 ```bash
 git clone https://github.com/fainstar/FiT_Static_0730.git```
 
-2. 開啟靜態網站：
-```bash
+2. 開啟```
 python3 -m http.server 8000
 ```
 瀏覽器開啟 http://localhost:8000 即可使用
+
+## 目前部署
+
+[部署網址](https://fainstar.github.io/FiT_Static_0730/)
+
+
