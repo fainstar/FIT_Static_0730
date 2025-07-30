@@ -23,7 +23,7 @@ python3 -m http.server 8000
 
 或使用任意HTTP Server
 
-## 目前以部署
+## 目前部署(github pages)
 https://fainstar.github.io/FIT_Static_0730/
 
 
