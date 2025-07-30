@@ -12,8 +12,9 @@
 1. 克隆存儲庫：
 ```bash
 git clone https://github.com/fainstar/FiT_Static_0730.git```
-
-2. 開啟```
+```
+2. 開啟
+```bash
 python3 -m http.server 8000
 ```
 瀏覽器開啟 http://localhost:8000 即可使用
