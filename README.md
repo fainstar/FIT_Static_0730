@@ -1,4 +1,4 @@
-# FitStatic 物件偵測系統
+# FIT＿Static 物件偵測系統
 
 基於瀏覽器的純前端物件偵測解決方案，採用 ONNX Runtime Web 實現無伺服器 AI 推論。系統特點：
 
